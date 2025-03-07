@@ -1,1 +1,27 @@
-spring.application.name=boot
+
+spring:
+  application:
+    name: boot ecommerce
+  datasource:
+    url: jdbc:postgresql://localhost:5432/boot_db
+    username: boot_user
+    password: boot_secret
+    driver-class-name: org.postgresql.Driver
+    # Optional: Connection pool configuration (if you're using HikariCP)
+    hikari:
+      maximum-pool-size: 100
+      minimum-idle: 5
+      idle-timeout: 30000
+      pool-name: HikariCP
+      connection-timeout: 20000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update       # options: validate | update | create | create-drop
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true            # logs SQL queries for debugging
+    open-in-view: false
+server:
+  port: 8085
